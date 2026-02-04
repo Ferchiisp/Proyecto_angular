@@ -1,0 +1,110 @@
+/* Component: Mapa Sitio */
+
+.page-wrapper {
+    padding-top: 4rem;
+    background: var(--color-bg-deep);
+    min-height: 100vh;
+}
+
+.btn-back {
+    display: inline-block;
+    color: var(--secondary-400);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.glass-panel {
+    padding: 2.5rem;
+    height: 100%;
+}
+
+.glass-panel h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.code-block {
+    background: #0f172a;
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: monospace;
+    color: #94a3b8;
+    border: 1px solid #1e293b;
+    margin: 1.5rem 0;
+}
+
+.nav-tree-mock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.tree-node {
+    background: #1e293b;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    border: 1px solid #334155;
+    color: #fff;
+}
+
+.tree-node.root {
+    background: var(--primary-600);
+    border-color: var(--primary-500);
+}
+
+.tree-line {
+    height: 20px;
+    width: 1px;
+    background: #334155;
+}
+
+.tree-row {
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid #334155;
+    padding-top: 1rem;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}

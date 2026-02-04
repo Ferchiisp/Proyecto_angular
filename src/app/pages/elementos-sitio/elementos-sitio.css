@@ -1,0 +1,147 @@
+/* Component: Elementos Sitio */
+
+.page-wrapper {
+    padding-top: 4rem;
+    background: var(--color-bg-deep);
+    /* Ensure bg matches */
+    min-height: 100vh;
+}
+
+.btn-back {
+    display: inline-block;
+    color: var(--secondary-400);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+/* Demo Cards (Reused styles from previous Inicio) */
+.component-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    height: 100%;
+}
+
+.card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: var(--secondary-400);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--secondary-400);
+}
+
+.component-demo {
+    padding: 2.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+}
+
+.demo-btn {
+    padding: 0.6rem 1.4rem;
+    background: var(--primary-600);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.demo-card {
+    width: 100px;
+    height: 75px;
+    background: #334155;
+    border-radius: 6px;
+}
+
+.demo-input {
+    width: 160px;
+    height: 35px;
+    border: 1px solid #475569;
+    border-radius: 4px;
+    background: #0f172a;
+}
+
+.card-body {
+    padding: 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.card-body h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.card-body ul {
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    color: var(--text-body);
+}
+
+.card-body li {
+    margin-bottom: 0.5rem;
+}
+
+.alert-info {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #93c5fd;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,165 @@
+/* Component: Contacto */
+
+.page-wrapper {
+    padding-top: 4rem;
+    background: var(--color-bg-deep);
+    min-height: 100vh;
+}
+
+.btn-back {
+    display: inline-block;
+    color: var(--secondary-400);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+}
+
+.contact-split-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-form-card {
+    text-align: left;
+    border-top: 4px solid var(--secondary-400);
+    background: rgba(15, 23, 42, 0.7);
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+/* Form Styles */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-wrapper {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-label-sm {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.input-field.ng-invalid.ng-touched {
+    border-color: #ef4444;
+}
+
+.error-msg {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+}
+
+.error-banner {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.alert-success {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid #10b981;
+    border-radius: 8px;
+    color: #ecfdf5;
+}
+
+.alert-success h4 {
+    color: #34d399;
+    margin-bottom: 1rem;
+}
+
+.challenge-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.small-input {
+    width: 100px;
+}
+
+.w-full {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.form-note {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* Educational Sidebar */
+.glass-panel {
+    padding: 2rem;
+}
+
+.glass-panel h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.detail-list {
+    padding-left: 1.5rem;
+    color: var(--text-body);
+}
+
+.detail-list li {
+    margin-bottom: 0.8rem;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 850px) {
+    .contact-split-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,291 @@
+/* =========================================
+   Component: Inicio (Hub & Home intro)
+   ========================================= */
+
+/* --- Layout Sections --- */
+.section {
+    padding: 8rem 0;
+    position: relative;
+}
+
+.bg-dim {
+    background: rgba(15, 23, 42, 0.4);
+}
+
+.section-intro {
+    margin-bottom: 4rem;
+    max-width: 800px;
+}
+
+/* --- Hero & Visuals (Kept from previous) --- */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 4rem;
+}
+
+.glow-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1;
+}
+
+.top-center {
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.glass-stack {
+    position: relative;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.stack-layer {
+    position: absolute;
+    width: 320px;
+    height: 200px;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    left: 20%;
+}
+
+.layer-content {
+    text-align: center;
+    width: 80%;
+}
+
+.skeleton-line {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.layer-1 {
+    top: 0;
+    transform: rotateX(10deg) rotateY(-10deg) translateZ(-40px);
+    z-index: 1;
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.layer-2 {
+    top: 80px;
+    left: 30%;
+    transform: rotateX(10deg) rotateY(-10deg) translateZ(0px);
+    z-index: 2;
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.layer-3 {
+    top: 160px;
+    left: 40%;
+    transform: rotateX(10deg) rotateY(-10deg) translateZ(40px);
+    z-index: 3;
+    background: rgba(37, 99, 235, 0.2);
+    border: 1px solid rgba(34, 211, 238, 0.5);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
+}
+
+.hero-visual:hover .layer-1 {
+    transform: translateY(-20px) rotateX(0) rotateY(0);
+}
+
+.hero-visual:hover .layer-2 {
+    transform: translateY(0px) rotateX(0) rotateY(0);
+}
+
+.hero-visual:hover .layer-3 {
+    transform: translateY(20px) rotateX(0) rotateY(0);
+}
+
+/* --- Grids --- */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.grid-3-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* --- Cards --- */
+.educational-card {
+    border-left: 4px solid var(--primary-500);
+}
+
+.icon-box {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.check-list li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1rem;
+}
+
+.check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-400);
+    font-weight: bold;
+}
+
+/* Visual Mockups */
+.visual-card {
+    background: rgba(2, 6, 23, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.ui-mockup {
+    width: 240px;
+    background: #0f172a;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mock-nav {
+    height: 12px;
+    background: #334155;
+    border-radius: 2px;
+}
+
+.mock-hero {
+    height: 80px;
+    background: #1e293b;
+    border-radius: 2px;
+}
+
+.mock-grid {
+    display: flex;
+    gap: 4px;
+}
+
+.mock-grid div {
+    height: 50px;
+    flex: 1;
+    background: #334155;
+    border-radius: 2px;
+}
+
+.caption {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* --- Hub Cards (Navigation) --- */
+.hub-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none !important;
+    /* Force remove underline from routerLink */
+    height: 100%;
+    border: 1px solid var(--glass-border);
+}
+
+.hub-card:hover {
+    border-color: var(--secondary-400);
+    background: rgba(30, 41, 59, 0.8);
+    transform: translateY(-5px);
+}
+
+.hub-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hub-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.hub-card p {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.hub-link {
+    margin-top: 1.5rem;
+    color: var(--secondary-400);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+
+    .hero-grid,
+    .grid-2-col {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .glass-stack {
+        display: none;
+    }
+
+    .hero {
+        text-align: center;
+        padding-top: 6rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+}

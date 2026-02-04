@@ -1,1 +1,240 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================================
+   Global Theme - "Luminous Blue" 💠
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+   /* Brand Colors - Deep & Vibrarnt */
+   --color-bg-deep: #020617;
+   /* Ink Blue */
+   --color-bg-light: #0f172a;
+   /* Slate Blue */
+
+   --primary-500: #3b82f6;
+   /* Standard Blue */
+   --primary-600: #2563eb;
+   /* Deep Blue */
+   --secondary-400: #22d3ee;
+   /* Cyan */
+   --accent-purple: #818cf8;
+   /* Soft Indigo */
+
+   /* Text */
+   --text-main: #f8fafc;
+   --text-body: #cbd5e1;
+   --text-muted: #94a3b8;
+
+   /* Glassmorphism */
+   --glass-bg: rgba(15, 23, 42, 0.6);
+   --glass-border: rgba(255, 255, 255, 0.08);
+   --glass-highlight: rgba(255, 255, 255, 0.03);
+   --backdrop-blur: blur(16px);
+
+   /* Gradients */
+   --gradient-main: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+   --gradient-blue: linear-gradient(135deg, #2563eb 0%, #22d3ee 100%);
+   --gradient-glow: radial-gradient(circle at center, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+
+   /* Shadows */
+   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+   --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+
+   /* Typography */
+   --font-main: 'Plus Jakarta Sans', system-ui, sans-serif;
+   --container-max: 1240px;
+}
+
+/* =========================================
+   Base
+   ========================================= */
+* {
+   box-sizing: border-box;
+}
+
+body {
+   margin: 0;
+   font-family: var(--font-main);
+   background-color: var(--color-bg-deep);
+   background-image:
+      radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(34, 211, 238, 0.1) 0%, transparent 40%);
+   color: var(--text-main);
+   line-height: 1.6;
+   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+   font-weight: 700;
+   line-height: 1.25;
+   margin-top: 0;
+   color: #fff;
+}
+
+h1 {
+   font-size: 3.5rem;
+   letter-spacing: -0.03em;
+}
+
+h2 {
+   font-size: 2.25rem;
+   letter-spacing: -0.02em;
+   margin-bottom: 2rem;
+}
+
+h3 {
+   font-size: 1.5rem;
+   margin-bottom: 1rem;
+}
+
+p {
+   color: var(--text-body);
+   font-size: 1.1rem;
+   margin-bottom: 1.5rem;
+   line-height: 1.8;
+}
+
+a {
+   text-decoration: none;
+   color: inherit;
+   transition: color 0.2s;
+}
+
+/* Utilities */
+.container {
+   max-width: var(--container-max);
+   margin: 0 auto;
+   padding: 0 2rem;
+}
+
+.text-gradient {
+   background: var(--gradient-blue);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+}
+
+.text-center {
+   text-align: center;
+}
+
+/* =========================================
+   UI Components - "Clean Glass"
+   ========================================= */
+
+/* Primary Button */
+.btn {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   padding: 0.8rem 1.8rem;
+   border-radius: 12px;
+   font-weight: 600;
+   font-size: 1rem;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   border: 1px solid transparent;
+}
+
+.btn-primary {
+   background: var(--primary-600);
+   color: white;
+   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:hover {
+   background: var(--primary-500);
+   transform: translateY(-2px);
+   box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+}
+
+.btn-secondary {
+   background: rgba(255, 255, 255, 0.05);
+   border: 1px solid var(--glass-border);
+   color: white;
+   backdrop-filter: blur(4px);
+}
+
+.btn-secondary:hover {
+   background: rgba(255, 255, 255, 0.1);
+   border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Glass Card */
+.card {
+   background: var(--glass-bg);
+   border: 1px solid var(--glass-border);
+   border-radius: 20px;
+   padding: 2.5rem;
+   /* Increased padding for more content */
+   backdrop-filter: var(--backdrop-blur);
+   transition: all 0.3s ease;
+   position: relative;
+   overflow: hidden;
+}
+
+.card:hover {
+   border-color: rgba(34, 211, 238, 0.3);
+   background: rgba(30, 41, 59, 0.7);
+   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+   transform: translateY(-4px);
+}
+
+/* Inputs */
+.input-field {
+   width: 100%;
+   padding: 1rem;
+   background: rgba(0, 0, 0, 0.2);
+   border: 1px solid var(--glass-border);
+   border-radius: 10px;
+   color: white;
+   font-family: var(--font-main);
+   transition: 0.3s;
+}
+
+.input-field:focus {
+   outline: none;
+   border-color: var(--primary-500);
+   background: rgba(0, 0, 0, 0.3);
+   box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Badges */
+.badge {
+   display: inline-flex;
+   align-items: center;
+   padding: 0.4rem 1rem;
+   border-radius: 50px;
+   font-size: 0.85rem;
+   font-weight: 600;
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+}
+
+.badge-blue {
+   background: rgba(37, 99, 235, 0.1);
+   color: #60a5fa;
+   border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+   width: 8px;
+}
+
+::-webkit-scrollbar-track {
+   background: var(--color-bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+   background: #334155;
+   border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: #475569;
+}

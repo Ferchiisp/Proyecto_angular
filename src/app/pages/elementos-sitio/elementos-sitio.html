@@ -1,0 +1,90 @@
+<div class="page-wrapper fade-in">
+    <section class="section">
+        <div class="container">
+
+            <div class="page-header mb-5">
+                <a routerLink="/" class="btn-back">&larr; Volver al Hub</a>
+                <h1 class="mt-3">Componentes de Interfaz (UI)</h1>
+                <p class="lead">Desglosando los átomos que componen la experiencia digital.</p>
+            </div>
+
+            <div class="grid-layout">
+
+                <!-- Button Deep Dive -->
+                <div class="topic-block">
+                    <div class="card component-card">
+                        <div class="card-header">
+                            <h4>Botones (Interactividad)</h4>
+                            <span class="dot"></span>
+                        </div>
+                        <div class="component-demo">
+                            <button class="demo-btn">Primary Action</button>
+                        </div>
+                        <div class="card-body">
+                            <h3>Anatomía de un Botón</h3>
+                            <p>Los botones son los detonadores de acción. Deben parecer "clicables" (Affordance). Un
+                                buen sistema de botones define una jerarquía clara:</p>
+                            <ul>
+                                <li><strong>Primarios:</strong> Rellenos con color fuerte. Solo uno por pantalla
+                                    idealmente (la acción principal).</li>
+                                <li><strong>Secundarios:</strong> Contornos (outline) o tonos suaves. Para acciones
+                                    alternativas (ej. "Cancelar").</li>
+                                <li><strong>Terciarios:</strong> Texto solo (Ghost buttons). Para enlaces menos
+                                    importantes.</li>
+                            </ul>
+                            <p><strong>Estados clave:</strong> Hover (al pasar el mouse), Active (al presionar), Focus
+                                (teclado) y Disabled (inactivo).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Deep Dive -->
+                <div class="topic-block">
+                    <div class="card component-card">
+                        <div class="card-header">
+                            <h4>Cards (Contenedores)</h4>
+                            <span class="dot"></span>
+                        </div>
+                        <div class="component-demo">
+                            <div class="demo-card"></div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Organización Modular</h3>
+                            <p>Las "Cards" agrupan información relacionada en un bloque coherente. Son el estándar
+                                moderno gracias al diseño responsivo, ya que se apilan fácilmente en móviles.</p>
+                            <p>Deben tener bordes definidos o sombras para separarse del fondo ("elevación"). Todo su
+                                contenido debe estar relacionado a un solo tópico (ej. un producto, un artículo).</p>
+                            <div class="alert-info">
+                                <strong>Tip de Diseño:</strong> Evita sobrecargar la card. Si hay demasiada información,
+                                usa un botón "Ver más" o un modal.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Deep Dive -->
+                <div class="topic-block">
+                    <div class="card component-card">
+                        <div class="card-header">
+                            <h4>Inputs (Entrada de Datos)</h4>
+                            <span class="dot"></span>
+                        </div>
+                        <div class="component-demo">
+                            <div class="demo-input"></div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Conversación con el Usuario</h3>
+                            <p>Los inputs permiten al usuario "hablar" con el sistema. La regla de oro es la prevención
+                                de errores: usa etiquetas (labels) claras siempre visibles.</p>
+                            <p>Valida los datos en tiempo real (mientras escriben) en lugar de mostrar errores crípticos
+                                al final. Usa el tipo correcto de input (`email`, `tel`) para facilitar la escritura en
+                                móviles.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</div>

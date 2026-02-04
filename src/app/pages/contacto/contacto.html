@@ -1,0 +1,113 @@
+<div class="page-wrapper page-fade-in">
+    <section class="section">
+        <div class="container">
+
+            <div class="page-header mb-5 text-center">
+                <a routerLink="/" class="btn-back" style="float: left;">&larr; Volver al Hub</a>
+                <div style="clear: both;"></div>
+                <h1 class="mt-3">Contacto & Confianza</h1>
+                <p class="lead" style="margin: 0 auto;">Formulario funcional con validaciones reales.</p>
+            </div>
+
+            <div class="contact-split-layout">
+
+                <!-- FUNCTIONAL FORM -->
+                <div class="form-container">
+                    <div class="card contact-form-card">
+
+                        <!-- Success Message -->
+                        <div *ngIf="enviado" class="alert alert-success">
+                            <h4>¡Mensaje Enviado!</h4>
+                            <p>{{ apiMessage }}</p>
+                            <button class="btn btn-sm btn-outline-light" (click)="enviado = false">Enviar otro</button>
+                        </div>
+
+                        <!-- The Form -->
+                        <form #f="ngForm" (ngSubmit)="enviar(f)" *ngIf="!enviado">
+
+                            <!-- Name -->
+                            <div class="input-wrapper">
+                                <label class="form-label-sm">Nombre Completo</label>
+                                <input type="text" class="input-field" name="nombre" [(ngModel)]="form.nombre" required
+                                    minlength="3" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$" placeholder="Ej. Juan Pérez">
+                                <div *ngIf="f.controls['nombre']?.invalid && f.controls['nombre']?.touched"
+                                    class="error-msg">
+                                    Nombre inválido (mínimo 3 letras).
+                                </div>
+                            </div>
+
+                            <!-- Email Grid -->
+                            <div class="form-grid">
+                                <div class="input-wrapper">
+                                    <label class="form-label-sm">Correo</label>
+                                    <input type="email" class="input-field" name="correo" [(ngModel)]="form.correo"
+                                        required email placeholder="tu@email.com">
+                                </div>
+                                <div class="input-wrapper">
+                                    <label class="form-label-sm">Confirmar Correo</label>
+                                    <input type="email" class="input-field" name="confirmarCorreo"
+                                        [(ngModel)]="form.confirmarCorreo" required placeholder="tu@email.com">
+                                    <div *ngIf="form.correo !== form.confirmarCorreo && f.controls['confirmarCorreo']?.touched"
+                                        class="error-msg">
+                                        Los correos no coinciden.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Message -->
+                            <div class="input-wrapper">
+                                <label class="form-label-sm">Mensaje</label>
+                                <textarea class="input-field" rows="4" name="mensaje" [(ngModel)]="form.mensaje"
+                                    required minlength="10" placeholder="Describe tu proyecto..."></textarea>
+                                <div *ngIf="f.controls['mensaje']?.invalid && f.controls['mensaje']?.touched"
+                                    class="error-msg">
+                                    El mensaje es muy corto.
+                                </div>
+                            </div>
+
+                            <!-- Challenge -->
+                            <div class="input-wrapper challenge-box">
+                                <label class="form-label-sm">Pregunta de Seguridad: {{ desafioActual }}</label>
+                                <input type="text" class="input-field small-input" name="respuesta"
+                                    [(ngModel)]="form.respuesta" required>
+                            </div>
+
+                            <!-- Actions -->
+                            <button type="submit" class="btn btn-primary w-full" [disabled]="f.invalid || loading">
+                                <span *ngIf="loading">Enviando...</span>
+                                <span *ngIf="!loading">Enviar Mensaje Seguro</span>
+                            </button>
+
+                            <div *ngIf="apiMessage && !enviado" class="error-banner mt-3">
+                                {{ apiMessage }}
+                            </div>
+
+                        </form>
+
+                        <div class="form-note">
+                            <small>🔒 Tus datos viajan encriptados.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDUCATIONAL SIDEBAR -->
+                <div class="education-sidebar">
+                    <div class="card glass-panel">
+                        <h3>Psicología del Formulario</h3>
+                        <p>Este formulario implementa varias buenas prácticas:</p>
+                        <ul class="detail-list">
+                            <li><strong>Validación Inline:</strong> Te avisa de errores antes de enviar.</li>
+                            <li><strong>Prevención de Errores:</strong> Pide confirmar el correo para evitar typos.</li>
+                            <li><strong>Seguridad:</strong> Usa un desafío simple (captcha) para evitar bots básicos.
+                            </li>
+                            <li><strong>Feedback:</strong> El botón cambia a "Enviando..." para que no le des click dos
+                                veces.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</div>

@@ -1,0 +1,112 @@
+<div class="page-wrapper page-fade-in">
+  <section class="section">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="page-header mb-5">
+        <a routerLink="/" class="btn-back">&larr; Volver al Hub</a>
+        <h1 class="mt-3">Búsqueda Interna</h1>
+        <p class="lead">Prueba el buscador funcional y aprende sobre su UX.</p>
+      </div>
+
+      <!-- FUNCTIONAL SEARCH INTERFACE -->
+      <div class="search-interface-wrapper">
+
+        <!-- Search Bar -->
+        <div class="search-bar-functional">
+          <input type="text" class="search-input" placeholder="Escribe 'menu', 'color', 'texto'..." [(ngModel)]="query"
+            (keyup.enter)="doSearch()">
+          <button class="btn btn-primary" (click)="doSearch()">
+            Buscar
+          </button>
+        </div>
+
+        <!-- Filters -->
+        <div class="search-filters">
+          <label>Filtros:</label>
+          <select [(ngModel)]="filters.section" (change)="doSearch()">
+            <option value="todas">Todas las secciones</option>
+            <option *ngFor="let s of sections" [value]="s">{{ s | titlecase }}</option>
+          </select>
+        </div>
+
+        <!-- Results Area -->
+        <div class="search-results-area">
+          <div class="results-header">
+            <h3>Resultados:</h3>
+            <span *ngIf="cargando" class="loading-label">Analizando datos...</span>
+          </div>
+
+          <!-- Async pipe subscribes to the Observable -->
+          <div *ngIf="!cargando; else loadingSkeleton">
+            <div *ngIf="(results$ | async) as results; else initialPrompt">
+
+              <div *ngIf="results.length === 0" class="no-results">
+                <p>No se encontraron resultados para "{{ query }}". Intenta con otro término.</p>
+              </div>
+
+              <div class="results-grid">
+                <div *ngFor="let item of results" class="result-card">
+                  <span class="badg" [class]="item.type">{{ item.type }}</span>
+                  <h4>
+                    <a [routerLink]="['/']" fragment="content-start">{{ item.title }}</a>
+                  </h4>
+                  <p>{{ item.description }}</p>
+                  <small class="location">En: {{ item.section }}</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Templates for different states -->
+        <ng-template #initialPrompt>
+          <p class="placeholder-text" *ngIf="!query">Realiza una búsqueda para ver resultados...</p>
+        </ng-template>
+
+        <ng-template #loadingSkeleton>
+          <div class="skeleton-results">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+          </div>
+        </ng-template>
+
+        <!-- EDUCATIONAL CONTENT (Supplementary) -->
+        <div class="education-section mt-5">
+          <div class="divider">
+            <span>Información Educativa</span>
+          </div>
+
+          <div class="content-split">
+            <div class="text-content">
+              <div class="card glass-panel">
+                <h3>Sobre la UX de Búsqueda</h3>
+                <p>
+                  Lo que ves arriba es un buscador funcional básico. En un entorno real, la búsqueda aumenta la
+                  conversión.
+                </p>
+              </div>
+
+              <div class="card glass-panel mt-4">
+                <h3>Buenas Prácticas</h3>
+                <ul class="detail-list">
+                  <li><strong>Feedback Inmediato:</strong> El usuario debe saber si está buscando o si no hubo
+                    resultados.
+                  </li>
+                  <li><strong>Filtros:</strong> Permitir refinar (como el selector de secciones arriba) ayuda a reducir
+                    el
+                    ruido.</li>
+                  <li><strong>Resultados Ricos:</strong> No solo mostrar el título, sino un fragmento (snippet) y la
+                    categoría.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- search-interface-wrapper -->
+    </div> <!-- container -->
+  </section>
+</div>

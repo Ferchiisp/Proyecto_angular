@@ -1,0 +1,67 @@
+<!-- "Tech Assembler" High-End Scroll Animation -->
+<div class="tech-assembler-container" aria-hidden="true">
+  <!-- Backdrop shards for parallax depth -->
+  <div class="shards-layer">
+    <div class="shard shard-1"></div>
+    <div class="shard shard-2"></div>
+    <div class="shard shard-3"></div>
+  </div>
+
+  <!-- Main Geometric Core -->
+  <svg class="assembler-svg" viewBox="0 0 200 200">
+    <defs>
+      <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:var(--primary-500); stop-opacity:1" />
+        <stop offset="100%" style="stop-color:var(--secondary-400); stop-opacity:1" />
+      </linearGradient>
+    </defs>
+
+    <!-- Wireframe Structure (Draws on scroll) -->
+    <path d="M100 20 L170 60 L170 140 L100 180 L30 140 L30 60 Z" class="wire-frame" />
+    <path d="M100 20 L100 180 M30 60 L170 140 M170 60 L30 140" class="wire-details" />
+
+    <!-- Pulse Nodes (Glow on scroll) -->
+    <circle cx="100" cy="20" r="3" class="node" />
+    <circle cx="170" cy="60" r="3" class="node" />
+    <circle cx="170" cy="140" r="3" class="node" />
+    <circle cx="100" cy="180" r="3" class="node" />
+    <circle cx="30" cy="140" r="3" class="node" />
+    <circle cx="30" cy="60" r="3" class="node" />
+    <circle cx="100" cy="100" r="5" class="node-center" />
+  </svg>
+
+  <div class="scan-line"></div>
+</div>
+
+<!-- Encabezado superior. Se mantendrá fijo en todas las páginas. -->
+<header class="topbar">
+  <div class="brand">Sitio-Estructura</div>
+
+  <!-- Menú de navegación. -->
+  <nav class="menu">
+    <a class="btn btn-light btn-sm me-2" routerLink="/" routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+    <a routerLink="/elementos" routerLinkActive="active">Elementos</a>
+    <a routerLink="/menu" routerLinkActive="active">Menú</a>
+    <a routerLink="/breadcrumbs" routerLinkActive="active">Breadcrumbs</a>
+    <a routerLink="/mapa-sitio" routerLinkActive="active">Mapa del sitio</a>
+    <a routerLink="/busqueda" routerLinkActive="active">Búsqueda</a>
+    <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+  </nav>
+  <form class="d-flex ms-3" (submit)="$event.preventDefault(); goSearch()">
+    <input class="form-control form-control-sm me-2" placeholder="Buscar…" [(ngModel)]="quickQuery" name="quickQuery" />
+    <button class="btn btn-sm btn-primary" type="submit">Ir</button>
+  </form>
+</header>
+
+<!-- Contenido principal. -->
+<main class="content">
+  <!-- <router-outlet>: Aquí es donde Angular muestra la página actual. -->
+  <app-breadcrumb></app-breadcrumb>
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Pie de página. También fijo. -->
+<footer class="footer">
+  <small>Desarrollo Web Profesional</small>
+</footer>

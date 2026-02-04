@@ -1,0 +1,191 @@
+/* =========================================
+   Layout Structure - Dark Theme Adapted
+   ========================================= */
+
+/* =========================================
+   Advanced Scroll Experience (Tech Assembler)
+   ========================================= */
+
+.tech-assembler-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+}
+
+/* 1. Shards Layer (Parallax particles) */
+.shards-layer {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+
+.shard {
+  position: absolute;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 211, 238, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(2px);
+  border-radius: 4px;
+}
+
+.shard-1 {
+  width: 40px;
+  height: 40px;
+  top: 10%;
+  left: 0;
+  transform: translate3d(calc(-50px * var(--scroll-percent, 0)), calc(100px * var(--scroll-percent, 0)), 0) rotate(calc(45deg * var(--scroll-percent, 0)));
+}
+
+.shard-2 {
+  width: 30px;
+  height: 30px;
+  bottom: 10%;
+  right: 0;
+  transform: translate3d(calc(80px * var(--scroll-percent, 0)), calc(-120px * var(--scroll-percent, 0)), 0) rotate(calc(-90deg * var(--scroll-percent, 0)));
+}
+
+.shard-3 {
+  width: 50px;
+  height: 20px;
+  top: 50%;
+  right: -20%;
+  transform: translate3d(calc(-100px * var(--scroll-percent, 0)), 0, 0) skewX(20deg);
+  opacity: calc(0.1 + 0.4 * var(--scroll-percent, 0));
+}
+
+/* 2. Main Assembler Core (SVG) */
+.assembler-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.1));
+}
+
+.wire-frame {
+  fill: rgba(30, 41, 59, calc(0.2 * var(--scroll-percent, 0)));
+  stroke: var(--secondary-400);
+  stroke-width: 1.5;
+  stroke-dasharray: 600;
+  stroke-dashoffset: calc(600 - (600 * var(--scroll-percent, 0)));
+  transition: stroke-dashoffset 0.1s linear, fill 0.3s ease;
+}
+
+.wire-details {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 1;
+  opacity: var(--scroll-percent, 0);
+  stroke-dasharray: 400;
+  stroke-dashoffset: calc(400 - (400 * var(--scroll-percent, 0)));
+}
+
+/* 3. Neural Nodes (Points) */
+.node {
+  fill: var(--primary-500);
+  opacity: calc(0.3 + 0.7 * var(--scroll-percent, 0));
+  filter: blur(calc(2px - 2px * var(--scroll-percent, 0)));
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+.node-center {
+  fill: #fff;
+  filter: drop-shadow(0 0 10px var(--secondary-400));
+  opacity: var(--scroll-percent, 0);
+  transition: opacity 0.5s ease;
+}
+
+/* 4. Scanning Effect */
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--secondary-400), transparent);
+  box-shadow: 0 0 15px var(--secondary-400);
+  top: calc(100% * var(--scroll-percent, 0));
+  opacity: 0.4;
+  z-index: 10;
+}
+
+@keyframes rotateAssembler {
+  from {
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+
+  to {
+    transform: rotate3d(1, 1, 0, 360deg);
+  }
+}
+
+/* Topbar - Glassy/Dark Header */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #0f172a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--primary-500);
+  letter-spacing: -0.05em;
+}
+
+/* Navigation Menu */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.menu a:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.menu a.active {
+  color: var(--primary-500);
+  background-color: rgba(59, 130, 246, 0.1);
+  font-weight: 600;
+}
+
+/* Main Content Area */
+.content {
+  padding: 2rem;
+  min-height: 80vh;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #0f172a;
+  text-align: center;
+  color: var(--text-muted);
+}

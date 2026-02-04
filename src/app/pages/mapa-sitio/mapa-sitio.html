@@ -1,0 +1,47 @@
+<div class="page-wrapper fade-in">
+    <section class="section">
+        <div class="container">
+
+            <div class="page-header mb-5">
+                <a routerLink="/" class="btn-back">&larr; Volver al Hub</a>
+                <h1 class="mt-3">Mapa del Sitio (Sitemap)</h1>
+                <p class="lead">El plano arquitectónico para robots y humanos.</p>
+            </div>
+
+            <div class="grid-layout">
+                <div class="card glass-panel">
+                    <h3>Sitemap XML (Para Robots)</h3>
+                    <p>
+                        Es un archivo (sitemap.xml) que lista todas las URLs de tu sitio. Su función es decirle a
+                        Googlebot: "Aquí están todas mis páginas, por favor indéxalas".
+                    </p>
+                    <div class="code-block">
+                        &lt;url&gt;<br>
+                        &nbsp;&nbsp;&lt;loc&gt;misitio.com/home&lt;/loc&gt;<br>
+                        &lt;/url&gt;
+                    </div>
+                    <p>Es vital para asegurar que no haya paginas huérfanas (sin enlaces) que Google no pueda encontrar.
+                    </p>
+                </div>
+
+                <div class="card glass-panel">
+                    <h3>Sitemap HTML (Para Humanos)</h3>
+                    <p>
+                        Es una página visible (generalmente en el footer) que muestra un índice de enlaces. Útil en
+                        sitios gubernamentales o universitarios con miles de páginas, para que el usuario pueda ver la
+                        estructura completa de un vistazo.
+                    </p>
+                    <div class="nav-tree-mock">
+                        <div class="tree-node root">Home</div>
+                        <div class="tree-line"></div>
+                        <div class="tree-row">
+                            <span class="tree-node">Legal</span>
+                            <span class="tree-node">Carreras</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

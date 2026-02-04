@@ -1,0 +1,145 @@
+/* Component: Breadcrumbs */
+
+.page-wrapper {
+    padding-top: 4rem;
+    background: var(--color-bg-deep);
+    min-height: 100vh;
+}
+
+.btn-back {
+    display: inline-block;
+    color: var(--secondary-400);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.content-split {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    /* Visual Left, Text Right */
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.glass-panel {
+    padding: 2.5rem;
+}
+
+.glass-panel h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.alert-info {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.detail-list {
+    padding-left: 1.5rem;
+    color: var(--text-body);
+}
+
+.detail-list li {
+    margin-bottom: 0.8rem;
+}
+
+/* Visuals */
+.visual-card {
+    background: rgba(2, 6, 23, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.breadcrumbs-demo {
+    font-family: monospace;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    background: #1e293b;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.breadcrumbs-demo .active {
+    color: var(--secondary-400);
+}
+
+.sep {
+    color: #64748b;
+    margin: 0 5px;
+}
+
+.tree-viz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.node {
+    background: #334155;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.node.sub {
+    background: #1e293b;
+    font-size: 0.85rem;
+}
+
+.node.active {
+    border: 1px solid var(--secondary-400);
+    color: var(--secondary-400);
+}
+
+.line-v {
+    height: 20px;
+    width: 1px;
+    background: #64748b;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 800px) {
+    .content-split {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

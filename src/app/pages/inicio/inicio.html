@@ -1,0 +1,149 @@
+<main class="page-wrapper">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="glow-orb top-center"></div>
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="badge badge-blue">Frontend Masterclass</span>
+                <h1>Arquitectura Web <br><span class="text-gradient">Inteligente & Escalable</span></h1>
+                <p>Bienvenido al módulo principal. Aquí diseccionaremos cada componente de una web moderna. Navega por
+                    los módulos a continuación para profundizar en cada tema.</p>
+                <div class="hero-actions">
+                    <a href="#modules" class="btn btn-primary">Ver Módulos</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="glass-stack">
+                    <div class="stack-layer layer-1">
+                        <div class="layer-content">
+                            <span>Header.jsx</span>
+                            <div class="skeleton-line"></div>
+                        </div>
+                    </div>
+                    <div class="stack-layer layer-2">
+                        <div class="layer-content">
+                            <span>Layout.css</span>
+                            <div class="skeleton-line"></div>
+                        </div>
+                    </div>
+                    <div class="stack-layer layer-3">
+                        <div class="layer-content">
+                            <span><strong>Core_System</strong></span>
+                            <div class="mini-grid">
+                                <div class="box"></div>
+                                <div class="box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Introducción: La Home -->
+    <section class="section">
+        <div class="container">
+            <div class="section-intro">
+                <h2>01. La Página de Inicio (Home)</h2>
+                <p>Más que una portada, es el motor de distribución de tráfico.</p>
+            </div>
+
+            <div class="grid-2-col">
+                <div class="card educational-card">
+                    <div class="icon-box blue">🏠</div>
+                    <h3>Propósito y Función</h3>
+                    <p>
+                        La página de inicio ("Home") es la primera impresión crítica. En menos de 5 segundos, debe
+                        comunicar la <strong>Propuesta de Valor Única</strong> (¿qué resuelves?) y establecer
+                        credibilidad.
+                        No intentes explicarlo todo aquí; el objetivo es segmentar a los usuarios y guiarlos hacia las
+                        páginas internas relevates (Productos, Blog, Contacto).
+                    </p>
+                    <p>
+                        Un concepto vital es el <strong>Above the Fold</strong>: el área visible antes de hacer scroll.
+                        Aquí debe estar siempre tu título principal (H1) y tu CTA primario. Si el usuario tiene que
+                        buscar para entender de qué trata el sitio, la tasa de rebote aumentará drásticamente.
+                    </p>
+                    <ul class="check-list">
+                        <li><strong>Claridad:</strong> Menos es más. Espacio negativo abundante.</li>
+                        <li><strong>Jerarquía:</strong> El H1 debe ser lo más grande y leído.</li>
+                        <li><strong>Velocidad:</strong> Debe cargar instantáneamente (Lazy load en imágenes).</li>
+                    </ul>
+                </div>
+                <div class="card visual-card">
+                    <div class="ui-mockup home-mockup">
+                        <div class="mock-nav"></div>
+                        <div class="mock-hero">
+                            <div class="mock-title"></div>
+                            <div class="mock-btn"></div>
+                        </div>
+                        <div class="mock-grid">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <p class="caption">Layout Canónico: Nav + Hero + Features Grid</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Módulos de Aprendizaje (Navigation Hub) -->
+    <section id="modules" class="section bg-dim">
+        <div class="container">
+            <div class="section-intro text-center">
+                <h2>Explora los Módulos</h2>
+                <p>Profundiza en cada aspecto de la arquitectura web.</p>
+            </div>
+
+            <div class="grid-3-col">
+
+                <a routerLink="/elementos" class="card hub-card">
+                    <div class="hub-icon">🎨</div>
+                    <h3>Elementos UI</h3>
+                    <p>Botones, Cards, Inputs y la jerarquía visual de los componentes.</p>
+                    <span class="hub-link">Ver Detalle &rarr;</span>
+                </a>
+
+                <a routerLink="/menu" class="card hub-card">
+                    <div class="hub-icon">🧭</div>
+                    <h3>Menú de Navegación</h3>
+                    <p>Arquitectura de información y patrones de navegación (Wayfinding).</p>
+                    <span class="hub-link">Ver Detalle &rarr;</span>
+                </a>
+
+                <a routerLink="/breadcrumbs" class="card hub-card">
+                    <div class="hub-icon">🥪</div>
+                    <h3>Breadcrumbs</h3>
+                    <p>Migas de pan y estructura jerárquica para SEO.</p>
+                    <span class="hub-link">Ver Detalle &rarr;</span>
+                </a>
+
+                <a routerLink="/mapa-sitio" class="card hub-card">
+                    <div class="hub-icon">🗺️</div>
+                    <h3>Mapa del Sitio</h3>
+                    <p>Sitemaps XML vs HTML y estrategia de indexación.</p>
+                    <span class="hub-link">Ver Detalle &rarr;</span>
+                </a>
+
+                <a routerLink="/busqueda" class="card hub-card">
+                    <div class="hub-icon">🔍</div>
+                    <h3>Búsqueda Interna</h3>
+                    <p>UX de búsqueda, autocompletado y filtros facetados.</p>
+                    <span class="hub-link">Ver Detalle &rarr;</span>
+                </a>
+
+                <a routerLink="/contacto" class="card hub-card">
+                    <div class="hub-icon">📨</div>
+                    <h3>Contacto</h3>
+                    <p>Formularios, confianza y optimización de conversión.</p>
+                    <span class="hub-link">Ver Detalle &rarr;</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+</main>

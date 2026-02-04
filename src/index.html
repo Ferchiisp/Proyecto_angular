@@ -1,13 +1,32 @@
+<!-- Este archivo es el punto de entrada principal para el navegador.
+     Analogía: Es el "terreno" donde vamos a construir nuestra casa (la aplicación). -->
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>SitioEstructura</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+     <!-- Metadatos básicos del documento HTML. -->
+     <meta charset="utf-8">
+     <!-- El título que aparece en la pestaña del navegador. -->
+     <title>SitioEstructura</title>
+     <!-- <base href="/">: Define la URL base para todos los enlaces relativos.
+       Analogía: Es como decirle al navegador "cualquier dirección que te dé, empieza a contar desde la puerta de entrada principal (la raíz /)". -->
+     <base href="/">
+     <!-- Configuración para que el sitio se vea bien en móviles. -->
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- El icono pequeño que se ve en la pestaña del navegador. -->
+     <link rel="icon" type="image/x-icon" href="tigrillo.ico">
+     <!-- Fonts: Inter (Body) & Outfit (Headings) -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+          rel="stylesheet">
 </head>
+
 <body>
-  <app-root></app-root>
+     <!-- <app-root>: Este es el lugar donde Angular "inyectará" nuestra aplicación.
+       Analogía: Es como poner un cartel de "Aquí empieza la construcción".
+       Angular busca esta etiqueta y construye toda la aplicación dentro de ella. -->
+     <app-root></app-root>
 </body>
+
 </html>
