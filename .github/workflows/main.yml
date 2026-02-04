@@ -31,12 +31,12 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build -- --configuration production --base-href /webProfesional/
+        run: npm run build -- --configuration production --base-href /Proyecto_angular/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/sitio-estructura/browser'
+          path: './dist/sitio-estructura-busquedas/browser'
 
   deploy:
     environment:
