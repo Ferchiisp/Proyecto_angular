@@ -36,7 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/sitio-estructura-busquedas/browser'
+          path: './dist/sitio-estructura/browser'
 
   deploy:
     environment:
