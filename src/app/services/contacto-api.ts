@@ -103,7 +103,6 @@ export class ContactoApi {
       message: 'Mensaje enviado correctamente (Backend).',
     };
 
-    console.log('[API] Respuesta OK:', ok);
     return of(ok).pipe(delay(400));
   }
 }

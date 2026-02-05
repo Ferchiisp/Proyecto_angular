@@ -111,6 +111,12 @@ a {
    padding: 0 2rem;
 }
 
+@media (max-width: 600px) {
+   .container {
+      padding: 0 1rem;
+   }
+}
+
 .text-gradient {
    background: var(--gradient-blue);
    -webkit-background-clip: text;

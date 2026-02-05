@@ -28,7 +28,14 @@ export class Layout {
 
   goSearch(): void {
     const q = (this.quickQuery || '').trim();
+    if (!q) return;
+
     // Navega a /busqueda?q=...
-    this.router.navigate(['/busqueda'], { queryParams: { q } });
+    this.router.navigate(['/busqueda'], {
+      queryParams: { q },
+      queryParamsHandling: 'merge' // Mantenemos otros posibles filtros
+    }).then(() => {
+      this.quickQuery = ''; // Limpiamos después de navegar
+    });
   }
 }

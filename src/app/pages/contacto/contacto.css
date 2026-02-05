@@ -44,6 +44,12 @@
     border-radius: 16px;
 }
 
+@media (max-width: 600px) {
+    .contact-form-card {
+        padding: 1rem;
+    }
+}
+
 /* Form Styles */
 .form-grid {
     display: grid;

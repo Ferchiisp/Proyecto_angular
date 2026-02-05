@@ -47,7 +47,7 @@
 
               <div class="results-grid">
                 <div *ngFor="let item of results" class="result-card">
-                  <span class="badg" [class]="item.type">{{ item.type }}</span>
+                  <span class="badge" [class]="item.type">{{ item.type }}</span>
                   <h4>
                     <a [routerLink]="['/']" fragment="content-start">{{ item.title }}</a>
                   </h4>

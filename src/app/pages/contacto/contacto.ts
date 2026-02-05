@@ -48,10 +48,10 @@ export class Contacto {
   apiFieldErrors: ApiFieldErrors = {}; // Libreta de errores que vienen del servidor
 
   // Regex para validación local del nombre (Solo letras y espacios)
-  nombreRegex = "^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,60}$";
+  nombreRegex = "^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$";
 
   // Timer de seguridad por si el servidor nunca responde (evita que se trabe la pantalla)
-  private loadingSafetyTimer: any = null;
+  private loadingSafetyTimer: ReturnType<typeof setTimeout> | null = null;
 
   // Inyección de dependencias: Pedimos el servicio 'ContactoApi' en el constructor.
   // Angular nos lo trae automáticamente (como pedir servicio al cuarto).
@@ -78,12 +78,10 @@ export class Contacto {
   // ---------------------------------------------------------------------------------------
 
   enviar(f: NgForm): void {
-    console.log('[UI] ngSubmit -> enviar()');
 
     // 1. Evitar doble envío (Anti-rebotar)
     // Si ya le diste click y está cargando, ignoramos nuevos clicks.
     if (this.loading) {
-      console.warn('[UI] Ya estaba cargando, se ignora doble submit.');
       return;
     }
 
@@ -96,7 +94,6 @@ export class Contacto {
 
     // Si el formulario HTML dice que es inválido (por los atributos required, minlength, etc.)
     if (f.invalid) {
-      console.warn('[UI] Form invalid (FrontEnd).');
       // Truco: Marcamos todos los campos como "tocados" para que se muestren los mensajes de error en rojo.
       Object.values(f.controls).forEach(c => c.markAsTouched());
       return;
@@ -104,11 +101,9 @@ export class Contacto {
 
     // Validaciones extra que el HTML no puede hacer solo (lógica nuestra)
     if (!this.correosCoinciden()) {
-      console.warn('[UI] Correos no coinciden (FrontEnd).');
       return;
     }
     if (!this.desafioValido()) {
-      console.warn('[UI] Desafío incorrecto (FrontEnd).');
       return;
     }
 
@@ -130,7 +125,6 @@ export class Contacto {
     this.clearSafetyTimer();
     this.loadingSafetyTimer = setTimeout(() => {
       if (this.loading) {
-        console.error('[UI] Safety timeout: loading seguía true. Se fuerza a false.');
         this.loading = false;
         this.apiMessage = 'La operación tardó demasiado. Intenta de nuevo.';
       }
@@ -142,7 +136,6 @@ export class Contacto {
         // finalize: Se ejecuta SIEMPRE, salga bien o mal.
         // Es perfecto para apagar el 'loading'.
         finalize(() => {
-          console.log('[UI] finalize() -> loading=false');
           this.loading = false;
           this.clearSafetyTimer();
         })
@@ -150,7 +143,6 @@ export class Contacto {
       .subscribe({
         // next: Si el servidor responde "algo" (sea éxito o error controlado)
         next: (res) => {
-          console.log('[UI] Respuesta recibida:', res);
 
           if (res.ok) {
             // ¡Éxito!
@@ -158,7 +150,7 @@ export class Contacto {
             this.apiMessage = res.message;
 
             // Limpiamos el formulario para que quede listo para otro mensaje
-            this.limpiar(f);
+            setTimeout(() => this.limpiar(f), 100);
             return;
           }
 
@@ -172,7 +164,6 @@ export class Contacto {
         },
         // error: Si explota algo (Error 500, sin internet, etc.)
         error: (err) => {
-          console.error('[UI] ERROR en subscribe:', err);
           this.enviado = false;
           this.apiMessage = 'Error inesperado al enviar. Intenta de nuevo.';
         }
