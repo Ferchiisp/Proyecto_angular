@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgFor, NgIf, AsyncPipe, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Observable, finalize } from 'rxjs';
+import { Observable, Subject, finalize, switchMap, tap, startWith, BehaviorSubject } from 'rxjs';
 
 import { SearchApi, SearchFilters } from '../../services/search';
 import { SiteItem } from '../../data/site-index';
@@ -40,7 +40,12 @@ export class Busqueda {
   // Datos para filtros que llenan el <select>
   sections: string[] = [];
 
-  // Resultados (como “API”)
+  // Resultados
+  private searchSubject = new BehaviorSubject<{ query: string, filters: SearchFilters }>({
+    query: this.query,
+    filters: this.filters
+  });
+
   results$!: Observable<SiteItem[]>;
   cargando = false;
 
@@ -56,22 +61,29 @@ export class Busqueda {
     this.sections = this.api.getSections();
 
     // 2. Escuchamos cambios en la URL (por si el usuario refresca o comparte el link).
-    // Si la URL es "/busqueda?q=menu", entonces params.get('q') valdrá "menu".
     this.route.queryParamMap.subscribe(params => {
-      // El operador ?? significa: "Si lo de la izquierda es null/undefined, usa lo de la derecha".
       const q = params.get('q') ?? '';
       this.query = q;
-      // Disparamos la búsqueda automáticamente al entrar.
       this.doSearch();
     });
+
+    // 3. Inicializamos el stream de resultados de forma reactiva.
+    this.results$ = this.searchSubject.pipe(
+      tap(() => this.cargando = true),
+      switchMap(({ query, filters }) =>
+        this.api.search(query, filters).pipe(
+          finalize(() => this.cargando = false)
+        )
+      )
+    );
   }
 
   // Método que ejecuta la acción de buscar
   doSearch(): void {
-    this.cargando = true;
-    this.results$ = this.api.search(this.query, this.filters).pipe(
-      finalize(() => this.cargando = false)
-    );
+    this.searchSubject.next({
+      query: this.query,
+      filters: this.filters
+    });
   }
 
   // Método para reiniciar todo a cero

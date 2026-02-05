@@ -38,14 +38,13 @@
           </div>
 
           <!-- Async pipe subscribes to the Observable -->
-          <div *ngIf="!cargando; else loadingSkeleton">
-            <div *ngIf="(results$ | async) as results; else initialPrompt">
-
-              <div *ngIf="results.length === 0" class="no-results">
+          <div *ngIf="results$ | async as results">
+            <div *ngIf="!cargando; else loadingSkeleton">
+              <div *ngIf="results.length === 0 && query" class="no-results">
                 <p>No se encontraron resultados para "{{ query }}". Intenta con otro término.</p>
               </div>
 
-              <div class="results-grid">
+              <div *ngIf="results.length > 0" class="results-grid">
                 <div *ngFor="let item of results" class="result-card">
                   <span class="badge" [class]="item.type">{{ item.type }}</span>
                   <h4>
@@ -56,14 +55,15 @@
                 </div>
               </div>
 
+              <p class="placeholder-text" *ngIf="!query && results.length === 0">
+                Realiza una búsqueda para ver resultados...
+              </p>
             </div>
           </div>
         </div>
 
         <!-- Templates for different states -->
-        <ng-template #initialPrompt>
-          <p class="placeholder-text" *ngIf="!query">Realiza una búsqueda para ver resultados...</p>
-        </ng-template>
+
 
         <ng-template #loadingSkeleton>
           <div class="skeleton-results">
